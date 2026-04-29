@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rabbiter.hospital.mapper.PatientMapper">
+    <select id="patientAge" resultType="Integer">
+        select count(p_id) as agePeople from patient  where
+            p_age BETWEEN #{startAge} AND #{endAge}
+    </select>
+
+
+    <select id="patientDrug" resultType="com.rabbiter.hospital.pojo.PatientDrug">
+        SELECT
+            TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(split_drug, '*', 1), '//', -1)) AS medicine_name,
+            COUNT(*) AS count
+        FROM (
+
+            SELECT
+            SUBSTRING_INDEX(SUBSTRING_INDEX(o_drug, '//', n.n), '//', -1) AS split_drug
+            FROM
+            orders
+            JOIN (
+
+            SELECT 1 AS n UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5
+            ) n ON CHAR_LENGTH(o_drug) - CHAR_LENGTH(REPLACE(o_drug, '//', '')) >= n.n - 1
+            ) subquery
+
+        WHERE split_drug != ''
+        GROUP BY
+            medicine_name;
+
+
+    </select>
+
+    <select id="patientCheck" resultType="com.rabbiter.hospital.pojo.PatientCheck">
+
+        SELECT
+            TRIM(SUBSTRING_INDEX(SUBSTRING_INDEX(split_check, '*', 1), '//', -1)) AS check_name,
+            COUNT(*) AS count
+        FROM (
+            SELECT
+            SUBSTRING_INDEX(SUBSTRING_INDEX(o_check, '//', n.n), '//', -1) AS split_check
+            FROM
+            orders
+            JOIN (
+            SELECT 1 AS n UNION ALL SELECT 2 UNION ALL SELECT 3 UNION ALL SELECT 4 UNION ALL SELECT 5
+            UNION ALL SELECT 6 UNION ALL SELECT 7 UNION ALL SELECT 8 UNION ALL SELECT 9 UNION ALL SELECT 10
+            ) n ON CHAR_LENGTH(o_check) - CHAR_LENGTH(REPLACE(o_check, '//', '')) >= n.n - 1
+            ) subquery
+
+        WHERE split_check != '' AND split_check NOT LIKE '%项目总价0元%'
+        GROUP BY
+            check_name;
+    </select>
+
+
+</mapper>
