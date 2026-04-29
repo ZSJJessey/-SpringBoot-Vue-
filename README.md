@@ -1,4 +1,4 @@
-# -SpringBoot-Vue-
+# -基于 SpringBoot + Vue 的医院管理系统智能化改造-
 技术栈： SpringBoot、Vue、Java、MyBatis-Plus、MySQL、Redis、JWT、Prompt Engineering、LLM 应用原型、RAG
 
 • 独立完成医院管理系统的需求分析、数据库设计、系统开发与测试，覆盖挂号、排班、病历、药品、检查及统计分析等核心业务流程。
