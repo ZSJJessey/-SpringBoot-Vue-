@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/views/PatientCard.vue",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1741270325759,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1741270338147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,8 @@\n <template>\n     <div class=\"patient-card-container\">\n       <el-card shadow=\"hover\">\n-        <!-- 患者照片 -->\n-        <div class=\"patient-photo\">\n-          <img :src=\"patientData.pPhoto || 'https://via.placeholder.com/150'\" alt=\"患者照片\">\n-        </div>\n+       \n         <!-- 患者信息表格 -->\n         <div class=\"patient-info-table\">\n           <table>\n             <tr>\n"
+                },
+                {
+                    "date": 1741270361086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,11 @@\n <template>\n     <div class=\"patient-card-container\">\n       <el-card shadow=\"hover\">\n-       \n+        <!-- 患者照片 -->\n+        <div class=\"patient-photo\">\n+            患者信息表格\n+        </div>\n         <!-- 患者信息表格 -->\n         <div class=\"patient-info-table\">\n           <table>\n             <tr>\n"
+                },
+                {
+                    "date": 1741270372386,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,13 +27,10 @@\n             <tr>\n               <td>身份证号：</td>\n               <td>{{ patientData.pCard }}</td>\n             </tr>\n+            \n             <tr>\n-              <td>邮箱：</td>\n-              <td>{{ patientData.pEmail }}</td>\n-            </tr>\n-            <tr>\n               <td>出生日期：</td>\n               <td>{{ patientData.pBirthday }}</td>\n             </tr>\n             <tr>\n"
+                }
+            ],
+            "date": 1741270325759,
+            "name": "Commit-0",
+            "content": "<template>\n    <div class=\"patient-card-container\">\n      <el-card shadow=\"hover\">\n        <!-- 患者照片 -->\n        <div class=\"patient-photo\">\n          <img :src=\"patientData.pPhoto || 'https://via.placeholder.com/150'\" alt=\"患者照片\">\n        </div>\n        <!-- 患者信息表格 -->\n        <div class=\"patient-info-table\">\n          <table>\n            <tr>\n              <td>姓名：</td>\n              <td>{{ patientData.pName }}</td>\n            </tr>\n            <tr>\n              <td>账号：</td>\n              <td>{{ patientData.pId }}</td>\n            </tr>\n            <tr>\n              <td>性别：</td>\n              <td>{{ patientData.pGender }}</td>\n            </tr>\n            <tr>\n              <td>手机号：</td>\n              <td>{{ patientData.pPhone }}</td>\n            </tr>\n            <tr>\n              <td>身份证号：</td>\n              <td>{{ patientData.pCard }}</td>\n            </tr>\n            <tr>\n              <td>邮箱：</td>\n              <td>{{ patientData.pEmail }}</td>\n            </tr>\n            <tr>\n              <td>出生日期：</td>\n              <td>{{ patientData.pBirthday }}</td>\n            </tr>\n            <tr>\n              <td>年龄：</td>\n              <td>{{ patientData.pAge }}</td>\n            </tr>\n          </table>\n        </div>\n      </el-card>\n    </div>\n  </template>\n  \n  <script>\n  import jwtDecode from \"jwt-decode\";\n  import { getToken } from \"@/utils/storage.js\";\n  import request from \"@/utils/request.js\";\n  \n  export default {\n    name: \"PatientCard\",\n    data() {\n      return {\n        userId: \"\",\n        patientData: {}\n      };\n    },\n    methods: {\n      // 请求患者信息\n      requestPatient() {\n        request.get(\"doctor/findPatientById\", {\n          params: {\n            pId: this.userId\n          }\n        })\n        .then(res => {\n          if (res.data.status != 200) {\n            return this.$message.error(\"获取数据失败\");\n          }\n          this.patientData = res.data.data;\n        });\n      },\n      // token 解码\n      tokenDecode(token) {\n        if (token !== null) {\n          return jwtDecode(token);\n        }\n      }\n    },\n    created() {\n      // 解码 token 信息\n      this.userId = this.tokenDecode(getToken()).pId;\n      this.requestPatient();\n      console.log(this.userId);\n    }\n  };\n  </script>\n  \n  <style lang=\"scss\" scoped>\n  .patient-card-container {\n    width: 100%;\n    margin-top: -10px;\n    padding: 20px;\n  }\n  \n  .patient-photo {\n    text-align: center;\n    padding: 20px 0;\n  \n    img {\n      width: 150px;\n      height: 150px;\n      border-radius: 50%;\n      object-fit: cover;\n      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);\n    }\n  }\n  \n  .patient-info-table {\n    padding: 20px;\n  \n    table {\n      width: 100%;\n      border-collapse: collapse;\n  \n      td {\n        padding: 10px;\n        border-bottom: 1px solid #eee;\n      }\n  \n      td:first-child {\n        width: 120px;\n        font-weight: bold;\n      }\n    }\n  }\n  </style>"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "src/utils/request.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1736822968813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736823030939,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import axios from \"axios\"\n-import {getToken} from \"@/utils/storage.js\";\n+import { getToken } from \"@/utils/storage.js\";\n \n //全局定义一个单例的axios对象\n const request = axios.create({\n   baseURL: \"http://localhost:9000\",\n@@ -9,15 +9,15 @@\n //全局拦截器，所有请求都会先执行这个\n request.interceptors.request.use(config => {\n   // Do something before request is sent\n   const token = getToken();\n-  if(token !== null){\n-      //在请求的头部加入token\n-      config.headers[\"token\"] = token;\n+  if (token !== null) {\n+    //在请求的头部加入token\n+    config.headers[\"token\"] = token;\n   }\n   return config;\n-  },error => {\n+}, error => {\n   // Do something with request error\n   return Promise.reject(error);\n-  });\n+});\n // 导出axios对象\n export default request;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1736822968813,
+            "name": "Commit-0",
+            "content": "import axios from \"axios\"\nimport {getToken} from \"@/utils/storage.js\";\n\n//全局定义一个单例的axios对象\nconst request = axios.create({\n  baseURL: \"http://localhost:9000\",\n  timeout: 8000\n});\n//全局拦截器，所有请求都会先执行这个\nrequest.interceptors.request.use(config => {\n  // Do something before request is sent\n  const token = getToken();\n  if(token !== null){\n      //在请求的头部加入token\n      config.headers[\"token\"] = token;\n  }\n  return config;\n  },error => {\n  // Do something with request error\n  return Promise.reject(error);\n  });\n// 导出axios对象\nexport default request;"
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/main.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1736947009620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1736947027891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,10 @@\n import App from \"./App.vue\";\n import './assets/font/iconfont.css'\n import router from \"./router\";\n Vue.config.productionTip = false;\n-export const EventBus = new Vue();\n+\n new Vue({\n   router,\n   render: h => h(App)\n }).$mount(\"#app\");\n+export const EventBus = new Vue();\n"
+                },
+                {
+                    "date": 1736947131020,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,5 +12,5 @@\n new Vue({\n   router,\n   render: h => h(App)\n }).$mount(\"#app\");\n-export const EventBus = new Vue();\n+\n"
+                }
+            ],
+            "date": 1736947009620,
+            "name": "Commit-0",
+            "content": "/*\n * @Description: \n * @Author: Rabbiter\n * @Date: 2023-01-14 20:02:29\n */\nimport Vue from \"vue\";\nimport App from \"./App.vue\";\nimport './assets/font/iconfont.css'\nimport router from \"./router\";\nVue.config.productionTip = false;\nexport const EventBus = new Vue();\nnew Vue({\n  router,\n  render: h => h(App)\n}).$mount(\"#app\");\n"
+        }
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "sourceFile": "vue.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1735311304001,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1735311544610,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n  */\n module.exports = {\n     lintOnSave: false, // 关闭eslint校验\n     devServer: {\n-        host: \"127.0.0.1\",\n+        host: \"localhost\",\n         port: 9282,\n         https: false,\n         proxy: \"http://localhost:9281\",\n         overlay: { // 关闭eslint校验\n"
+                },
+                {
+                    "date": 1736821675779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,8 @@\n     devServer: {\n         host: \"localhost\",\n         port: 9282,\n         https: false,\n-        proxy: \"http://localhost:9281\",\n         overlay: { // 关闭eslint校验\n             warning: false,\n             errors: false\n         },\n"
+                },
+                {
+                    "date": 1736821749090,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n     devServer: {\n         host: \"localhost\",\n         port: 9282,\n         https: false,\n+        proxy: \"http://localhost:9281\",\n         overlay: { // 关闭eslint校验\n             warning: false,\n             errors: false\n         },\n"
+                },
+                {
+                    "date": 1736822139588,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n  */\n module.exports = {\n     lintOnSave: false, // 关闭eslint校验\n     devServer: {\n-        host: \"localhost\",\n+        host: \"0.0.0.0\",\n         port: 9282,\n         https: false,\n         proxy: \"http://localhost:9281\",\n         overlay: { // 关闭eslint校验\n"
+                },
+                {
+                    "date": 1736822208283,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,12 +8,8 @@\n     devServer: {\n         host: \"0.0.0.0\",\n         port: 9282,\n         https: false,\n-        proxy: \"http://localhost:9281\",\n-        overlay: { // 关闭eslint校验\n-            warning: false,\n-            errors: false\n-        },\n+       \n     }\n }\n //设置代理解决跨域问题\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1735311304001,
+            "name": "Commit-0",
+            "content": "/*\n * @Description: \n * @Author: Rabbiter\n * @Date: 2023-01-14 20:02:29\n */\nmodule.exports = {\n    lintOnSave: false, // 关闭eslint校验\n    devServer: {\n        host: \"127.0.0.1\",\n        port: 9282,\n        https: false,\n        proxy: \"http://localhost:9281\",\n        overlay: { // 关闭eslint校验\n            warning: false,\n            errors: false\n        },\n    }\n}\n//设置代理解决跨域问题"
+        }
+    ]
+}

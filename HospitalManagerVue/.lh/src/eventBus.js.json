@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/eventBus.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1736947124956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1736947124956,
+            "name": "Commit-0",
+            "content": "// event-bus.js\r\nimport Vue from 'vue';\r\nexport const EventBus = new Vue();"
+        }
+    ]
+}
